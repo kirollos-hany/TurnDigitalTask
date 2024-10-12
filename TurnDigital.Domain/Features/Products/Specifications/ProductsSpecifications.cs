@@ -9,17 +9,18 @@ public static class ProductsSpecifications
 {
     public static IQueryable<Product> ById(this IQueryable<Product> queryable, int id) =>
         queryable.Where(product => product.Id == id);
-    
+
     public static IQueryable<Product> WithCategory(this IQueryable<Product> queryable) =>
         queryable.Include(product => product.Category);
 
     public static IQueryable<Product> ByName(this IQueryable<Product> queryable, string name) =>
-        queryable.Where(product => product.Name == name);
+        queryable.Where(product => product.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
     public static IQueryable<Product> ByNameAndSelfCategoryIdExcludeId(this IQueryable<Product> queryable, string name,
         int productId) =>
         queryable.Where(product => product.Id != productId && product.Name == name &&
-                                   product.CategoryId == queryable.ById(productId).Select(p => p.CategoryId).FirstOrDefault());
+                                   product.CategoryId == queryable.ById(productId).Select(p => p.CategoryId)
+                                       .FirstOrDefault());
 
     public static IQueryable<Product> NameIncludes(this IQueryable<Product> queryable, string name) =>
         queryable.Where(product => product.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
