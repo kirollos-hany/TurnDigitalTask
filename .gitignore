@@ -15,3 +15,7 @@
 /.vs/TurnDigital
 /global.json
 /.vs/ProjectEvaluation
+/TurnDigital.UnitTest/bin
+/TurnDigital.UnitTest/obj
+/TurnDigital.IntegrationTests/bin
+/TurnDigital.IntegrationTests/obj
