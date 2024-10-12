@@ -56,3 +56,7 @@ This repository contains a .NET-based application developed as a task submission
 1. Clone the repository:
    ```bash
    git clone https://github.com/kirollos-hany/TurnDigitalTask.git
+
+### Account Admin
+- **Email**: admin@turndigital.com
+- **Password**: Admin#123
