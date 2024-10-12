@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using TurnDigital.Application.Common
+@model TurnDigital.Web.Features.Categories.Requests.EditCategoryRequest
+
+@{
+    Layout = "_Layout";
+    ViewData[Constants.ViewDataKeys.Title] = Model.Name;
+
+  Context.Request.RouteValues.TryGetValue("id", out var idObject);
+
+  int.TryParse(idObject!.ToString(), out var id);
+}
+
+<div class="row">
+  <div class="card">
+    <div class="card-header">
+      @Model.Name
+    </div>
+    <div class="card-body">
+      <form class="col-6 mx-auto" method="POST" asp-action="EditCategory" asp-controller="Categories" asp-route-id="@id">
+        @Html.AntiForgeryToken()
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input class="form-control" asp-for="Name">
+        </div>
+
+                    <div class="my-4">
+                      <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                  
+        @if (!string.IsNullOrEmpty(ViewData[Constants.ViewDataKeys.Message] as string))
+        {
+          <div class="my-4">
+            <span class="alert alert-success">@ViewData[Constants.ViewDataKeys.Message]</span>
+          </div>
+        }
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+
+</div>

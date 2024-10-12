@@ -1,0 +1,80 @@
+﻿@model TurnDigital.Web.Features.Products.ViewModels.ProductDetailsViewModel
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using TurnDigital.Application.Common
+@using TurnDigital.Domain.Utilities
+@{
+  Context.Request.RouteValues.TryGetValue("slug", out var slugObject);
+}
+
+<div class="row">
+  <div class="card">
+    <div class="card-header">
+      @Model.Product.Name
+    </div>
+    <div class="card-body">
+      <form class="col-6 mx-auto" method="POST" asp-action="EditProduct" asp-controller="Products" asp-route-slug="@slugObject!.ToString()" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+                <div class="mb-3">
+                  <label class="form-label">Image</label>
+                  <input class="form-control" asp-for="Image" type="file" accept="image/*">
+                  <div class="d-flex flex-row justify-content-center">
+                    <img id="ImagePreview" src="@Model.Product.Image" class="img img-thumbnail img-fluid my-2 w-100" alt="Image Preview" style="height: 200px;object-fit: cover" />
+                  </div>
+                  
+                </div>
+
+                            <div class="my-4">
+                              <span asp-validation-for="Image" class="text-danger"></span>
+                            </div>
+
+        <div class="my-4">
+                              <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                          
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input class="form-control" asp-for="Name" value="@Model.Product.Name">
+        </div>
+
+                    <div class="my-4">
+                      <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                  
+                <div class="mb-3">
+                  <label class="form-label">Description</label>
+                  <textarea name="@nameof(Model.Description)" class="form-control">@Model.Product.Description</textarea>
+                </div>
+
+                            <div class="my-4">
+                              <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                          
+                <div class="mb-3">
+                  <label class="form-label">Price</label>
+                  <input class="form-control" asp-for="Price" type="number" value="@Model.Product.Price.FormatDouble()">
+                </div>
+
+                            <div class="my-4">
+                              <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                          
+        @if (!string.IsNullOrEmpty(ViewData[Constants.ViewDataKeys.Message] as string))
+        {
+          <div class="my-4">
+            <span class="alert alert-success">@ViewData[Constants.ViewDataKeys.Message]</span>
+          </div>
+        }
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+
+</div>
+
+@section Scripts
+{
+  <script>
+  imagePreviewFunc("Image", "ImagePreview")
+  </script>
+}

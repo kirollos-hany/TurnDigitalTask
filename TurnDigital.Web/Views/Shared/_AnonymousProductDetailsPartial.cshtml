@@ -1,0 +1,13 @@
+﻿@using TurnDigital.Domain.Utilities
+@model TurnDigital.Domain.Features.Products.Dtos.ProductDto
+
+<div class="card col-6">
+    <img src="@Model.Image" class="card-img-top" alt="...">
+    <div class="card-body">
+        <div class="d-flex flex-row justify-content-between">
+            <h5 class="card-title">@Model.Name - @Model.Category.Name</h5>
+            <h5 class="card-title">@Model.Price.FormatDouble() $</h5>
+        </div>
+        <p class="card-text">@Model.Description</p>
+    </div>
+</div>

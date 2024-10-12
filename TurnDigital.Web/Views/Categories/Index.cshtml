@@ -1,0 +1,39 @@
+﻿@using TurnDigital.Application.Common
+@model TurnDigital.Application.Responses.CollectionWrapper<TurnDigital.Domain.Features.Categories.Dtos.CategoryDto>
+@{
+    ViewData[Constants.ViewDataKeys.Title] = "Categories";
+    Layout = "_Layout";
+}
+
+<div>
+  <a asp-action="AddCategory" asp-controller="Categories" class="btn btn-primary">
+      Add Category
+    </a>
+</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  @foreach (var category in Model.Results)
+  {
+    <tr>
+      <th scope="row"><a asp-action="CategoryDetails" asp-controller="Categories" asp-route-id="@category.Id">@category.Id</a></th>
+      <td><a asp-action="CategoryDetails" asp-controller="Categories" asp-route-id="@category.Id">@category.Name</a></td>
+      <td>
+        <a class="btn btn-danger" onclick="showDeleteSwalFunc('/categories', @category.Id)">
+          <i class="bi bi-trash"></i>
+        </a>
+      </td>
+    </tr>
+  }
+  </tbody>
+</table>
+
+
+
+

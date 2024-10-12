@@ -1,0 +1,11 @@
+2024-10-12 18:23:43.672 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-10-12 18:33:19.280 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-10-12 18:35:07.391 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-10-12 18:36:13.787 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-10-12 18:43:07.111 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-10-12 18:43:24.630 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-10-12 18:43:59.742 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-10-12 18:45:07.114 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-10-12 18:45:33.010 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-10-12 18:49:25.117 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-10-12 18:50:13.007 +02:00 [WRN] Failed to determine the https port for redirect.

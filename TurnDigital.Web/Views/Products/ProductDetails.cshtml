@@ -1,0 +1,23 @@
+﻿@using TurnDigital.Application.Common
+@using TurnDigital.Domain.Security.Enums
+@using TurnDigital.Web.Utilities
+@model TurnDigital.Web.Features.Products.ViewModels.ProductDetailsViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData[Constants.ViewDataKeys.Title] = Model.Product.Name;
+    var isAuthenticated = Context.User.IsAuthenticated();
+    var isAdmin = isAuthenticated && Context.User.IsInRole(nameof(Roles.TurnDigitalAdmin));
+}
+
+@if (isAdmin)
+{
+    <partial name="_AdminProductDetailsPartial" model="@Model"/>
+}
+else
+{
+    <div class="d-flex flex-row justify-content-center">
+        <partial name="_AnonymousProductDetailsPartial" model="@Model.Product"/>
+    </div>
+}
+

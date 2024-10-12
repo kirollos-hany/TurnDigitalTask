@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnDigital.Web", "TurnDigital.Web\TurnDigital.Web.csproj", "{EEC6A201-5F89-48A8-A876-172CD8170E9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnDigital.Domain", "TurnDigital.Domain\TurnDigital.Domain.csproj", "{24940219-29AF-4D04-AD13-5CC840D6234B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnDigital.Application", "TurnDigital.Application\TurnDigital.Application.csproj", "{4E6A6573-1C00-4F26-923E-C4AA8D25EB65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnDigital.Infrastructure", "TurnDigital.Infrastructure\TurnDigital.Infrastructure.csproj", "{125DAF29-04BF-4651-A237-6F3FD19B081E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnDigital.UnitTest", "TurnDigital.UnitTest\TurnDigital.UnitTest.csproj", "{D73B98D4-BFEF-4511-9898-4BFD7EB43C57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnDigital.IntegrationTests", "TurnDigital.IntegrationTests\TurnDigital.IntegrationTests.csproj", "{EC54410D-C466-4109-BF6E-2436D8D43F3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEC6A201-5F89-48A8-A876-172CD8170E9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEC6A201-5F89-48A8-A876-172CD8170E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEC6A201-5F89-48A8-A876-172CD8170E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEC6A201-5F89-48A8-A876-172CD8170E9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24940219-29AF-4D04-AD13-5CC840D6234B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24940219-29AF-4D04-AD13-5CC840D6234B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24940219-29AF-4D04-AD13-5CC840D6234B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24940219-29AF-4D04-AD13-5CC840D6234B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E6A6573-1C00-4F26-923E-C4AA8D25EB65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E6A6573-1C00-4F26-923E-C4AA8D25EB65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E6A6573-1C00-4F26-923E-C4AA8D25EB65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E6A6573-1C00-4F26-923E-C4AA8D25EB65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{125DAF29-04BF-4651-A237-6F3FD19B081E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{125DAF29-04BF-4651-A237-6F3FD19B081E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{125DAF29-04BF-4651-A237-6F3FD19B081E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{125DAF29-04BF-4651-A237-6F3FD19B081E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D73B98D4-BFEF-4511-9898-4BFD7EB43C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D73B98D4-BFEF-4511-9898-4BFD7EB43C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D73B98D4-BFEF-4511-9898-4BFD7EB43C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D73B98D4-BFEF-4511-9898-4BFD7EB43C57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC54410D-C466-4109-BF6E-2436D8D43F3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC54410D-C466-4109-BF6E-2436D8D43F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC54410D-C466-4109-BF6E-2436D8D43F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC54410D-C466-4109-BF6E-2436D8D43F3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

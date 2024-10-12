@@ -1,0 +1,92 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using TurnDigital.Application.Common
+@model TurnDigital.Web.Features.Products.ViewModels.AddProductViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData[Constants.ViewDataKeys.Title] = "Add Product";
+}
+
+<div class="row">
+  <div class="card">
+    <div class="card-header">
+      Add Product
+    </div>
+    <div class="card-body">
+      <form class="col-6 mx-auto" method="POST" asp-action="AddProduct" asp-controller="Products" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+                <div class="mb-3">
+                  <label class="form-label">Image</label>
+                  <input class="form-control" asp-for="Image" type="file" accept="image/*">
+                  <div class="d-flex flex-row justify-content-center">
+                    <img id="ImagePreview" src="#" class="img img-thumbnail img-fluid my-2 w-100" alt="Image Preview" style="display:none;height: 200px;object-fit: cover" />
+                  </div>
+                  
+                </div>
+
+                            <div class="my-4">
+                              <span asp-validation-for="Image" class="text-danger"></span>
+                            </div>
+                          
+                <div class="mb-3">
+                  <label class="form-label">Category</label>
+                  <select asp-for="CategoryId" class="form-select">
+                    @foreach (var category in Model.Categories)
+                    {
+                      <option value="@category.Id">@category.Name</option>
+                    }
+                  </select>
+                </div>
+
+                            <div class="my-4">
+                              <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                          
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input class="form-control" asp-for="Name">
+        </div>
+
+                    <div class="my-4">
+                      <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                  
+                <div class="mb-3">
+                  <label class="form-label">Description</label>
+                  <textarea class="form-control" asp-for="Description"></textarea>
+                </div>
+
+                            <div class="my-4">
+                              <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                          
+                <div class="mb-3">
+                  <label class="form-label">Price</label>
+                  <input class="form-control" asp-for="Price" type="number">
+                </div>
+
+                            <div class="my-4">
+                              <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                          
+        @if (!string.IsNullOrEmpty(ViewData[Constants.ViewDataKeys.Message] as string))
+        {
+          <div class="my-4">
+            <span class="alert alert-success">@ViewData[Constants.ViewDataKeys.Message]</span>
+          </div>
+        }
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+
+</div>
+
+@section Scripts
+{
+  <script>
+  imagePreviewFunc("Image", "ImagePreview")
+  </script>
+}
+

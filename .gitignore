@@ -1,0 +1,17 @@
+/TurnDigital.Infrastructure/bin
+/TurnDigital.Infrastructure/obj
+/.vscode
+/TurnDigital.Application/obj
+/TurnDigital.Application/bin
+/TurnDigital.Web/obj
+/.idea
+/TurnDigital.Web/bin
+/TurnDigital.Common/bin
+/TurnDigital.Common/obj
+.fake
+/TurnDigital.Domain/bin
+/TurnDigital.Domain/obj
+/TurnDigital.Web/Logs
+/.vs/TurnDigital
+/global.json
+/.vs/ProjectEvaluation

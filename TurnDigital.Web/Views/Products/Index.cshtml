@@ -1,0 +1,125 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using TurnDigital.Application.Common
+@using TurnDigital.Domain.Security.Enums
+@using TurnDigital.Domain.Utilities
+@using TurnDigital.Web.Utilities
+@model TurnDigital.Web.Features.Products.ViewModels.ProductsViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData[Constants.ViewDataKeys.Title] = "Products";
+  var isAuthenticated = Context.User.IsAuthenticated();
+
+  var isAdmin = isAuthenticated && Context.User.IsInRole(nameof(Roles.TurnDigitalAdmin));
+}
+@if (isAdmin)
+{
+  <div>
+    <a asp-action="AddProduct" asp-controller="Products" class="btn btn-primary">
+      Add Product
+    </a>
+  </div>
+}
+
+
+<div class="d-flex flex-row justify-content-center">
+  <form method="GET" asp-action="Index" asp-controller="Products" class="d-flex flex-row">
+    <div class="d-flex flex-row">
+          <div class="mx-2">
+            <label class="form-label">Category</label>
+            <select asp-for="CategoryId" class="form-select">
+              <option value=""></option>
+              @foreach (var category in Model.Categories)
+              {
+                <option value="@category.Id">@category.Name</option>
+              }
+            </select>
+          </div>
+          <div>
+            <label class="form-label">Name</label>
+            <input asp-for="Name" class="form-control"/>
+          </div>
+    </div>
+    <div class="align-self-center mx-4 mt-4">
+      <button type="submit" class="my-auto btn btn-primary">Search</button>
+    </div>
+    
+  </form>
+  
+</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Category</th>
+    <th scope="col">Price</th>
+    <th scope="col">Created At</th>
+    @if (isAdmin)
+    {
+      <th scope="col">Action</th>
+    }
+  </tr>
+  </thead>
+  <tbody>
+  @foreach (var product in Model.Products.Items)
+  {
+    <tr>
+      <th scope="row"><a asp-action="ProductDetails" asp-controller="Products" asp-route-slug="@product.Slug">@product.Id</a></th>
+      <td>
+        <div class="d-flex flex-row">
+          <img class="img img-fluid img-thumbnail w-25" style="height:100px"  alt="" src="@product.Image"/>
+          <h4 class="align-self-center">@product.Name</h4>
+        </div>
+      </td>
+      <td>
+        @product.Category.Name
+      </td>
+      <td>
+        @product.Price.FormatDouble() $
+      </td>
+      <td>
+        @product.UtcCreatedDate.FormatDate()
+      </td>
+      @if (isAdmin)
+      {
+        <td>
+          <a class="btn btn-danger" onclick="showDeleteSwalFunc('/products', @product.Id)">
+            <i class="bi bi-trash"></i>
+          </a>
+        </td>
+      }
+    </tr>
+  }
+  </tbody>
+
+</table>
+
+<nav aria-label="Page navigation example">
+  <div class="d-flex flex-row justify-content-center">
+
+    <ul class="pagination">
+      @if (Model.Products.HasPreviousPage)
+      {
+        <li class="page-item"><a class="page-link" href='@Url.Action(action: "Index", controller: "Products")?pageIndex=@(Model.Products.PageIndex - 1)'>&lt</a></li>
+      }
+      else
+      {
+        <li class="page-item disabled"><a class="page-link">&lt</a></li>
+      }
+
+      <li class="page-item disabled"><a class="page-link">@Model.Products.PageIndex</a></li>
+
+      @if (Model.Products.HasNextPage)
+            {
+              <li class="page-item"><a class="page-link" href="@Url.Action(action: "Index", controller: "Products")?pageIndex=@(Model.Products.PageIndex + 1)">&gt</a></li>
+            }
+            else
+            {
+              <li class="page-item disabled"><a class="page-link">&gt</a></li>
+            }
+    </ul>
+    
+  </div>
+  </nav>
+
