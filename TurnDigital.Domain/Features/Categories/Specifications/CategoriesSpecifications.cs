@@ -8,7 +8,7 @@ public static class CategoriesSpecifications
 {
     public static IQueryable<Category> ByName(
         this IQueryable<Category> queryable, string name) =>
-        queryable.Where(category => category.Name == name);
+        queryable.Where(category => category.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
     public static IQueryable<Category> ById(this IQueryable<Category> queryable, int id) =>
         queryable.Where(category => category.Id == id);
